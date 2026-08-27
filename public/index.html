@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Message</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Username screen -->
+    <div id="loginScreen" class="screen">
+        <div class="loginBox">
+            <h1>Message</h1>
+            <p>Choose a username to enter the chat.</p>
+
+            <input
+                id="usernameInput"
+                type="text"
+                placeholder="Username"
+                maxlength="20"
+            >
+
+            <button id="joinButton">
+                Join Chat
+            </button>
+
+            <p id="loginError" class="error"></p>
+        </div>
+    </div>
+
+
+    <!-- Main application -->
+    <div id="app" class="app hidden">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                Message
+            </div>
+
+            <div class="myUsername">
+                <span>Logged in as</span>
+                <strong id="myUsername"></strong>
+            </div>
+
+            <button id="generalButton" class="chatButton active">
+                🌎 General Chat
+            </button>
+
+            <div class="directSection">
+                <h3>Direct Message</h3>
+
+                <div class="directInput">
+                    <input
+                        id="recipientInput"
+                        type="text"
+                        placeholder="Enter username"
+                    >
+
+                    <button id="dmButton">
+                        Chat
+                    </button>
+                </div>
+            </div>
+
+            <div class="onlineSection">
+                <h3>Online Users</h3>
+
+                <div id="userList"></div>
+            </div>
+
+        </aside>
+
+
+        <!-- Chat -->
+        <main class="chat">
+
+            <header class="chatHeader">
+                <div>
+                    <h2 id="chatTitle">General Chat</h2>
+                    <span id="chatSubtitle">
+                        Everyone can see these messages
+                    </span>
+                </div>
+            </header>
+
+
+            <div id="messages" class="messages"></div>
+
+
+            <form id="messageForm" class="messageForm">
+
+                <input
+                    id="messageInput"
+                    type="text"
+                    placeholder="Type a message..."
+                    autocomplete="off"
+                    maxlength="500"
+                >
+
+                <button type="submit">
+                    Send
+                </button>
+
+            </form>
+
+        </main>
+
+    </div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
