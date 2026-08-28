@@ -4,9 +4,12 @@ let currentUsername = "";
 let currentChat = "general";
 let currentRecipient = "";
 
+const termsScreen = document.getElementById("termsScreen");
 const loginScreen = document.getElementById("loginScreen");
 const app = document.getElementById("app");
 
+const termsCheckbox = document.getElementById("termsCheckbox");
+const acceptTermsButton = document.getElementById("acceptTermsButton");
 const usernameInput = document.getElementById("usernameInput");
 const joinButton = document.getElementById("joinButton");
 const loginError = document.getElementById("loginError");
@@ -31,6 +34,16 @@ const userList = document.getElementById("userList");
 // --------------------
 // LOGIN
 // --------------------
+
+termsCheckbox.addEventListener("change", () => {
+    acceptTermsButton.disabled = !termsCheckbox.checked;
+});
+
+acceptTermsButton.addEventListener("click", () => {
+    termsScreen.classList.add("hidden");
+    loginScreen.classList.remove("hidden");
+    usernameInput.focus();
+});
 
 joinButton.addEventListener("click", joinChat);
 
