@@ -151,10 +151,8 @@ socket.on("privateMessage", (data) => {
 
     const isRelevant =
         currentChat === "private" &&
-        (
-            data.sender === currentRecipient ||
-            data.recipient === currentRecipient
-        );
+        ((data.sender === currentUsername && data.recipient === currentRecipient) ||
+         (data.sender === currentRecipient && data.recipient === currentUsername));
 
     if (!isRelevant) return;
 
